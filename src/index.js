@@ -11,5 +11,8 @@ if ('serviceWorker' in navigator) {
         }).catch(registrationError => {
             console.log('SW registration failed: ', registrationError);
         });
+        navigator.serviceWorker.ready.then((registration) => {
+            registration.active.postMessage("Hi service worker");
+        });
     });
 }
